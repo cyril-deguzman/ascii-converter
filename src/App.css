@@ -1,3 +1,10 @@
+/*You can import any font from Google e.g.: @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*Rubik Font*/
+
+*{
+  font-family:'Rubik';
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #4CAF50;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +42,80 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+div{
+  min-width: 90%;
+}
+
+textarea{
+  border-radius: 16px;
+  background-color: rgba(255,255,255,30%);
+  color:#FFFF;
+  min-width: 90%;
+  min-height: 200px;
+  max-height: 400px;
+  vertical-align: middle;
+  font-size: x-large;
+  border: none;
+  padding-left: 2%;
+  padding-right: 2%;
+  scroll-behavior: auto;
+  
+}
+
+input{
+  border-radius: 16px;
+  background-color: rgba(255,255,255,30%);
+  color:#FFFF;
+  min-height: 60px;
+  max-height: 200px;
+  width: 50%;
+  max-width: 60%;
+  vertical-align: middle;
+  border: none;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-size: x-large;
+}
+
+button{
+  border-radius: 16px;
+  border: none;
+  background-color: rgba(255,255,255,90%);; /*600*/
+  font-size: 16px;
+  color:rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 120%;
+  margin-bottom: 8px;
+  margin-right: 4px;
+  height: 80px;
+  min-width: 200px;
+  width: 15%;
+  margin: 1% 1% 1% 1%;
+}
+
+button:hover{
+  background-color: #388E3C; /*700*/
+}
+
+button:focus{
+  background-color: #2E7D32; /*800*/
+}
+
+button:active{
+  background-color: #1B5E20; /*900*/
+}
+
+p1{
+  color:white;
+  vertical-align: middle;
+}
+
+hr{
+  border-radius: 16px;
+  color:'white';
+  background-color: white;
+  border: 1px solid white;
+  height:.5;
 }
