@@ -1,6 +1,22 @@
-# ASCII Converter
+# Unicode Converter
 
-in partial fulfillment to CSARCH2, this repository was created to store... (to add send halp uwu).
+As a partial fulfillment to CSARCH2, this repository was created to serve as the official repository for the final group project for the course. The project will serve as a culmination of the lessons covered in this course, specifically the character representation through Unicode encoding.
+
+The goal of the project is to create an application that is capable of turning a Unicode value into its equivalent UTF-8, UTF-16, and UTF-32 value.
+
+## Specifications:
+1. Input: Unicode (with invalid Unicode check)
+2. Output: UTF-8; UTF-16; UTF-32 (format: xx xx xx ; where x is hex nibble)
+3. Note: output with option to paste result in notepad
+
+## Group 7
+1. Alon-alon, Jason Miguel
+2. Cruz, Julianne Felice
+3. De Guzman, Cyril Ethan
+4. Escalona, Jose Miguel
+5. Rebong, Leana Hyacinth
+6. Roncal, Raphael
+7. Turk, Chadi
 
 ## Scripts
 
