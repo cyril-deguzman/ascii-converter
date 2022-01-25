@@ -101,6 +101,25 @@ class Unicode{
     }
 
     //====INTERNAL FUNCTIONALITY====
+    /**
+     * PRIVATE
+     * Formats input into the specified format xx xx xx where each 'x' is 
+     * a hex nibble.
+     * @param {String} input 
+     * @returns 
+     */
+    Format(input){
+        //simply remove conditions if length to be adjusted
+        if(input.length > 4){
+            if(input.length%4!==0){
+                var len = input.length-(input.length%4)+4;
+                input = this.Resize(input, len);
+            }
+            input = input.substring(0,4) + " " + input.substring(4,input.length);
+        }
+        //console.log("new input: " + input);
+        return input;
+    }
 
     /**
      * PRIVATE
@@ -130,7 +149,7 @@ class Unicode{
 
         binary = this.buildBinaryUTF8(binary, this.findLabel(size));
 
-        return parseInt(binary , 2).toString(16).toUpperCase(); // Long.toHexString(Long.parseLong(binary,2)).toUpperCase();
+        return this.Format(parseInt(binary , 2).toString(16).toUpperCase()); // Long.toHexString(Long.parseLong(binary,2)).toUpperCase();
     }
 
     /**
@@ -157,7 +176,7 @@ class Unicode{
 
             output += left.toString(16) + right.toString(16) + "";
         }
-        return output.toUpperCase();
+        return this.Format(output.toUpperCase());
     }
 
     /**
@@ -167,7 +186,7 @@ class Unicode{
      * @returns UTF32 equivalent of the input value
      */
     FindUTF32(input){
-        return this.Resize(input, 8).toUpperCase();
+        return this.Format(this.Resize(input, 8).toUpperCase());
     }
 
     /**
@@ -284,7 +303,6 @@ class Unicode{
             idx = 3;
             range = 32;
         }
-
         for(var i = 0; i < range; i++) {
             if(indexRef[idx][i] === -2)
                 output += "0";
@@ -293,7 +311,6 @@ class Unicode{
             else
                 output += input.charAt(indexRef[idx][i]) + "";
         }
-
         return output;
     }
 }

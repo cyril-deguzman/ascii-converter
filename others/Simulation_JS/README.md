@@ -32,15 +32,15 @@ The goal of the project is to create an application that is capable of turning a
 
 ## Import/Use (path assumes Unicode and Checker is on the same folder as the caller file)
 1. For Node, use:
-	import {Checker} from './Checker.js';
-	import {Unicode} from './Unicode.js';
+	import {Checker} from './Checker.js';<br>
+	import {Unicode} from './Unicode.js';<br>
 	
-	let _ = new Unicode();
-	let _ = new Unicode();
+	let _ = new Unicode();<br>
+	let _ = new Unicode();<br>
 2. For React, use:
-	import './Checker.js';
-	import './Unicode.js';
+	import './Checker.js';<br>
+	import './Unicode.js';<br>
 	
-	let _ = new Unicode();
-	let _ = new Unicode();
+	let _ = new Unicode();<br>
+	let _ = new Unicode();<br>
 3. For demonstration, simply run `node Main_Terminal.js` to see a sample test run of the Unicode and Checker functionality. You may check outputs on this website [https://r12a.github.io/app-conversion/]
