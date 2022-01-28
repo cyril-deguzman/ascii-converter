@@ -34,10 +34,12 @@ class Checker{
         var inputCaps = input.toUpperCase(); //just to simplify conditions (will only check ascii values of uppercase letters and numbers)
         if(inputCaps.length === 0)
             return null;
+        if(inputCaps.length === 4 && (inputCaps==="U+0X" || inputCaps === "0XU+"))
+            return null;
         if(inputCaps.length>=4) 
-            if(inputCaps.substring(0,4).match("U+0X"))
+            if(inputCaps.substring(0,4)===("U+0X") || inputCaps.substring(0,4)===("0XU+"))
                 inputCaps = inputCaps.substring(4,input.length);
-        else if(inputCaps.substring(0,2).match("U+") || inputCaps.substring(0,2).match("0X"))
+        else if(inputCaps.substring(0,2)===("U+") || inputCaps.substring(0,2)===("0X"))
             inputCaps = inputCaps.substring(2, inputCaps.length);
 
         if(input.length === 0)
