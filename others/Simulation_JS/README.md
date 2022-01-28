@@ -73,7 +73,9 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 		* **Notes**: 
 			* UTF8,UTF16,UTF32 values are already set at a 'xx' format where each 'x' is a hex nibble. 
 			* The output of GetChar will ultimately depend on how it is read by the system which may not run on a Unicode encoding format. Thus it may return as something similar to '□'. However, based on testing, it sometimes shows on terminal outputs normally.
-
+	* **TestUnicode()**
+    	* Simply call to check if class file can be called externally (e.g. via importation)
+    	* Prints `Unicode online!`
 ## Reference
 **JS**
 1. parseInt - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
