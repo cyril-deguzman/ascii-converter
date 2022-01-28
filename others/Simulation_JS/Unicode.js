@@ -41,7 +41,7 @@ class Unicode{
 
         if(this.unicode.length === 0)
             return null;
-        
+
         if(this.utf8.length === 0)
             this.utf8 = this.FindUTF8(this.unicode);
         if(this.utf16.length === 0)
@@ -56,6 +56,8 @@ class Unicode{
         list[2] = this.utf16;
         list[3] = this.utf32;
         list[4] = this.unicodeChar;
+
+        //list = [this.unicode, this.utf8, this.utf16, this.utf32, this.unicodeChar]
 
         return list;
     }
@@ -100,27 +102,15 @@ class Unicode{
         return this.unicodeChar;
     }
 
-    //====INTERNAL FUNCTIONALITY====
-    /**
-     * PRIVATE
-     * Formats input into the specified format xx xx xx where each 'x' is 
-     * a hex nibble.
-     * @param {String} input 
-     * @returns 
+    /***
+     * Returns the formatted output string as specified in the specifications.
+     * @returns Formatted output xx xx xx where each xx is the UTF-8, UTF-16, and UTF-32 respectively
      */
-    Format(input){
-        //simply remove conditions if length to be adjusted
-        if(input.length > 4){
-            if(input.length%4!==0){
-                var len = input.length-(input.length%4)+4;
-                input = this.Resize(input, len);
-            }
-            input = input.substring(0,4) + " " + input.substring(4,input.length);
-        }
-        //console.log("new input: " + input);
-        return input;
+    get GetFormatted(){
+        return this.GetUTF8 + " " + this.GetUTF16 + " " + this.GetUTF32;
     }
 
+    //====INTERNAL FUNCTIONALITY====
     /**
      * PRIVATE
      * Computes for the char equivalent of the input value
@@ -149,7 +139,7 @@ class Unicode{
 
         binary = this.buildBinaryUTF8(binary, this.findLabel(size));
 
-        return this.Format(parseInt(binary , 2).toString(16).toUpperCase()); // Long.toHexString(Long.parseLong(binary,2)).toUpperCase();
+        return this.Resize(parseInt(binary , 2).toString(16).toUpperCase(),8); // Long.toHexString(Long.parseLong(binary,2)).toUpperCase();
     }
 
     /**
@@ -159,7 +149,7 @@ class Unicode{
      * @returns UTF16 equivalent of the input value
      */
     FindUTF16(input){
-        var output = this.Resize(input, 4);
+        var output = this.Resize(input, 8);
         var numVal = parseInt(input, 16);
         
         if(numVal > parseInt("FFFF",16)){
@@ -176,7 +166,7 @@ class Unicode{
 
             output += left.toString(16) + right.toString(16) + "";
         }
-        return this.Format(output.toUpperCase());
+        return this.Resize(output,8).toUpperCase();
     }
 
     /**
@@ -186,7 +176,7 @@ class Unicode{
      * @returns UTF32 equivalent of the input value
      */
     FindUTF32(input){
-        return this.Format(this.Resize(input, 8).toUpperCase());
+        return this.Resize(input, 8).toUpperCase();
     }
 
     /**
