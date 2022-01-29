@@ -9,7 +9,7 @@
  * 
  */
 
-class Unicode{
+ class Unicode{
 	TestUnicode(){
         console.log("Unicode online!");
 	}
@@ -162,7 +162,7 @@ class Unicode{
             //convert to binary and split to left and right segments
             var binary = this.Resize(tempVal.toString(2),20);
             var binLeft = binary.substring(0,10);
-            var binRight = binary.substring(10,10); 
+            var binRight = binary.substring(10,20); 
             
             var left = parseInt(binLeft,2) + parseInt("D800",16); //add left_bin and 0xD800
             var right = parseInt(binRight,2) + parseInt("DC00",16); //add right_bin and 0xDC00
@@ -239,18 +239,16 @@ class Unicode{
      * @returns Label value of the given input (7,11,16,or 21)
      */
     findLabel(size){
-        switch(size) {
-            case 1:
-                return 7;
-            case 2:
-                return 11;
-            case 3:
-                return 16;
-            case 4:
-                return 21;
-            default:
-                return -1;
-        }
+        if(size === 1) //1byte
+            return 7;
+        if(size === 2) //2bytes
+            return 11;
+        if(size === 3) //3bytes
+            return 16;
+        if(size === 4) //4bytes
+            return 21;
+        
+        return -1; //assumes invalid input
     }
 
     /**
@@ -307,17 +305,12 @@ class Unicode{
         }
         //iterate through the constants and input char indexes
         for(var i = 0; i < range; i++) {
-            switch(indexRef[idx][i]) {
-				case -2:
-					output += "0";
-					break;
-				case -1:
-					output += "1";
-					break;
-				default:
-					output += input.charAt(indexRef[idx][i]) + "";
-					break;
-			}
+            if(indexRef[idx][i] === -2) //constant -1
+                output += "0";
+            else if(indexRef[idx][i] === -1) //constant 0
+                output += "1";
+            else
+                output += input.charAt(indexRef[idx][i]) + ""; //input(idx)
         }
         return output;
     }
