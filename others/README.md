@@ -102,3 +102,6 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 	let _ = new Unicode();
     ```
 3. For demonstration, simply run `node Main_Terminal.js` to see a sample test run of the Unicode and Checker functionality. You may check outputs on this website: <https://r12a.github.io/app-conversion/>
+
+## Performance
+<img src="performance.png" alt="Unicode Java Performance"/>
