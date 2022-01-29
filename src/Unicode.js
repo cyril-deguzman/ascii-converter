@@ -15,7 +15,7 @@
 	}
 	
     constructor(){
-
+        
     }
     /**
      * Sets new Unicode value for conversion to equivalent UTF8,-16,-32, and char values.
