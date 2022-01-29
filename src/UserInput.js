@@ -1,5 +1,5 @@
 import React from 'react';
-import { Unicode } from '../others/Simulation_JS/Unicode';
+import { Unicode } from './Unicode';
 
 class UserInput extends React.Component {
     constructor(props) {
