@@ -52,9 +52,23 @@ class App extends Component {
       case 4: navigator.clipboard.writeText(this.state.symbol); break;
       default: ;
     }
-
     this.setState({clipboard: 'Copied to clipboard!'});
+
+    this.handleAlert()
   }
+
+  handleAlert(){
+      (async () => {
+        document.getElementById('alert-div').style.display = 'block';
+        document.getElementById('output').style.marginTop = "2.05%";
+         await setTimeout(()=>{
+           document.getElementById('alert-div').style.display = 'none';
+           document.getElementById('output').style.marginTop = "5%";
+         },2000)
+      })()    
+  }
+
+
 
   render() {
     return (
@@ -65,17 +79,20 @@ class App extends Component {
         <div id="search">
           <Search size="large" placeholder="Enter Unicode" onSearch={this.handleChange} enterButton />
           <p></p>
-          <Alert message={this.state.clipboard} type="success" showIcon />
+          <div id='alert-div'>
+            <Alert message={this.state.clipboard} type="success"  showIcon/>
+          </div>
+          
         </div>
 
         <div id="output">
-          <div id="utf" class="output">
-            <h1 onClick={() => this.handleClipboard(1)}>UTF-8: <span class="output-text">{this.state.utf8}</span></h1>
-            <h1 onClick={() => this.handleClipboard(2)}>UTF-16: <span class="output-text">{this.state.utf16}</span></h1>
-            <h1 onClick={() => this.handleClipboard(3)}>UTF-32: <span class="output-text">{this.state.utf32}</span></h1>
+          <div id="utf" className="output">
+            <h1 onClick={() => this.handleClipboard(1) }>UTF-8: <span className="output-text">{this.state.utf8}</span></h1>
+            <h1 onClick={() => this.handleClipboard(2)}>UTF-16: <span className="output-text">{this.state.utf16}</span></h1>
+            <h1 onClick={() => this.handleClipboard(3)}>UTF-32: <span className="output-text">{this.state.utf32}</span></h1>
           </div>
           
-          <div id="symbol-div" class="output">
+          <div id="symbol-div" className="output">
             <h1 onClick={() => this.handleClipboard(4)} id="symbol">{this.state.symbol}</h1>
           </div>
         </div>
