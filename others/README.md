@@ -113,4 +113,5 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 
 ## Performance
 <img src="performance.png" alt="Unicode Java Performance"/>
-Note that 70-Run was executed with other applications running in the background, thus it may have affected the performance in comparison to 20-Run which was executed on a newly booted system. Performance improvements on Java version (labelled on the graph as *New Implementation*) was also implemented here, but no tests have been done to confirm if the improvements also reflect on JS version. Similar to 20-Run, *New Implementation* was executed with no other applications running except for VSCode and cmd. 
+Note that 70-Run was executed with other applications running in the background, thus it may have affected the performance in comparison to 20-Run which was executed on a newly booted system. <br>
+Performance improvements on Java version (labelled on the graph as New Implementation) was also implemented here, but no tests have been done to confirm if the improvements also reflect on JS version. Similar to 20-Run, New Implementation was executed with no other applications running except for VSCode and cmd. <br> 
