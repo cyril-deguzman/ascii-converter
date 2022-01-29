@@ -1,5 +1,5 @@
 import {Checker} from './Checker.js'
-import {Unicode} from '../../src/Unicode.js'
+import {Unicode} from './Unicode.js'
 
 //TEST AREA
 let c = new Checker();
