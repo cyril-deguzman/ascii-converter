@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserInput from './UserInput'; 
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   CalculatorOutlined
@@ -45,7 +46,7 @@ class App extends Component {
               <Breadcrumb.Item>Calculator</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              Send help uwu
+              <UserInput />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>CSARCH ascii-team </Footer>
