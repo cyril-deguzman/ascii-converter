@@ -28,8 +28,9 @@ var list = ["245D6","1CAFE","42069","Youtube","Meta","ABCDEF","10FFFFF",
         "1FFFFF","","U+ABCDEF","U+3041","U+0x3086","0xU+308C","3044","0x306A","zxcvbnm","0x10FFFF",
         "0x10FFF","10FF", "u+10F", "U+10","0x","U+0x","U+","U+AB","0xAB"];
 
+//LIST/ARRAY OF INPUTS
 for(var i = 0; i < list.length; i++){
-    if(c.CheckInput(list[i]) != null
+    if(c.CheckInput(list[i]) != null){
         //SET
         u.SetUnicode(c.CheckInput(list[i])); //Set the Unicode for computation
         
@@ -42,6 +43,13 @@ for(var i = 0; i < list.length; i++){
         var utf32 = u.GetUTF32; //Get UTF-32 value only
         var char = u.GetChar; //Get Char value only
     }
+}
+
+//SINGLE INPUT
+var in = c.CheckInput("U+42069");
+if(in !=null){
+	u.SetUnicode(in);
+	console.log(u.GetAll);
 }
 ```
 Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-converter/blob/master/others/Simulation_JS/Main_Terminal.js) via `node Main_Terminal.js` on cmd for sample run of similar code.
@@ -102,3 +110,7 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 	let _ = new Unicode();
     ```
 3. For demonstration, simply run `node Main_Terminal.js` to see a sample test run of the Unicode and Checker functionality. You may check outputs on this website: <https://r12a.github.io/app-conversion/>
+
+## Performance
+<img src="performance.png" alt="Unicode Java Performance"/>
+Note that 70-Run was executed with other applications running in the background, thus it may have affected the performance in comparison to 20-Run which was executed on a newly booted system. Performance improvements on Java version (labelled on the graph as *New Implementation*) was also implemented here, but no tests have been done to confirm if the improvements also reflect on JS version. Similar to 20-Run, *New Implementation* was executed with no other applications running except for VSCode and cmd. 
