@@ -105,3 +105,4 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 
 ## Performance
 <img src="performance.png" alt="Unicode Java Performance"/>
+Note that 70-Run was executed with other applications running in the background, thus it may have affected the performance in comparison to 20-Run which was executed on a newly booted system.
