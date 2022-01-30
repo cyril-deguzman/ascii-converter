@@ -4,6 +4,9 @@ As a partial fulfillment to CSARCH2, this repository was created to serve as the
 
 The goal of the project is to create an application that is capable of turning a Unicode value into its equivalent UTF-8, UTF-16, and UTF-32 value.
 
+## Output:
+[https://ascii-converter.vercel.app/](https://ascii-converter.vercel.app/)
+
 ## Specifications:
 1. Input: Unicode (with invalid Unicode check)
 2. Output: UTF-8; UTF-16; UTF-32 (format: xx xx xx ; where x is hex nibble)
