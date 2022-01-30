@@ -38,6 +38,6 @@ You may also see any lint errors in the console.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Must install
+## To run locally, you must install:
 1. React: `npm install react`
 2. Ant Design: `npm install antd`
