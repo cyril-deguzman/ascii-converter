@@ -9,7 +9,7 @@
  * 
  */
 
-class Unicode{
+ class Unicode{
 	TestUnicode(){
         console.log("Unicode online!");
 	}
