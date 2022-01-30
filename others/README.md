@@ -115,4 +115,4 @@ Try executing [Main_Terminal.js](https://github.com/cyril-deguzman/ascii-convert
 <img src="performance.png" alt="Unicode Java Performance"/>
 Note that 70-Run was executed with other applications running in the background, thus it may have affected the performance in comparison to 20-Run which was executed on a newly booted system. <br>
 Performance improvements on Java version (labelled on the graph as New Implementation) was also implemented here. Similar to 20-Run, New Implementation was executed with no other applications running except for VSCode and cmd. <br> 
-For JS version, the original intent of just porting Java code into JS prove to be significantly slower. Thus, the JS version was re-optimized specifically as to how JS runs. The changes resulted to ~30% improvement in performance when running 0x00-0x10FFFFF Unicode samples.<br>
+For JS version, the original intent of just porting Java code into JS prove to be significantly slower. Thus, the JS version was re-optimized specifically as to how JS runs. The changes resulted to ~29% improvement in performance when running 0x00-0x10FFFFF Unicode samples.<br>

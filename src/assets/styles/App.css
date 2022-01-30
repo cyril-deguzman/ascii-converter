@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 2.5%;
+  padding-top: 2.5%; /*to remove need for scrollable page*/
   color: #5f4b40;
 }
 
@@ -18,6 +18,7 @@
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   font-size: 60px;
+  text-align: center;
 }
 
 #output{
@@ -34,7 +35,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 #symbol{
@@ -51,10 +51,12 @@
 
 .output-text:hover {
   cursor: url("../images/cursorClipboard.png"), auto;
+  text-shadow: 0px 0px 2px #413c3c;
 }
 
 #symbol:hover {
   cursor: url("../images/cursorClipboard.png"), auto;
+  text-shadow: 0px 0px 2px #413c3c;
 }
 
 .output-text{
@@ -67,6 +69,11 @@
 
 .ant-input-search .ant-input-lg {
   line-height: 2.5713;
+}
+
+.footer{
+  font-family: 'Roboto';
+  text-align: center;
 }
 
 #alert-div{

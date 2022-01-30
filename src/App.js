@@ -84,7 +84,6 @@ class App extends Component {
           </div>
           
         </div>
-
         <div id="output">
           <div id="utf" className="output">
             <h1 onClick={() => this.handleClipboard(1) }>UTF-8: <span className="output-text">{this.state.utf8}</span></h1>
@@ -95,6 +94,10 @@ class App extends Component {
           <div id="symbol-div" className="output">
             <h1 onClick={() => this.handleClipboard(4)} id="symbol">{this.state.symbol}</h1>
           </div>
+        </div>
+
+        <div id="footer" className="footer">
+          <a href="https://github.com/cyril-deguzman/ascii-converter">Link to Github Repo</a>
         </div>
       </div>
     );
