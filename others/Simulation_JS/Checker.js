@@ -31,9 +31,17 @@
         if(inputCaps.length === 0)
             return null;
         inputCaps = inputCaps.replace(/\s/gm,""); //remove any whitespaces
-        if(inputCaps.length === 4 && (inputCaps==="U+0X" || inputCaps === "0XU+")) //check if the only contents of input are U+0x or 0xU+
+        if(inputCaps.length < 4){
+            if(inputCaps === "U+" || inputCaps === "0x") //assume only containing U+ or 0x
+                return null;
+            else if((inputCaps.substring(0,2)==="U+" || inputCaps.substring(0,2)==="0x"))
+                return inputCaps.substring(2,3);
+            else
+                return inputCaps;
+        }   
+        else if(inputCaps.length === 4 && (inputCaps==="U+0X" || inputCaps === "0XU+")) //check if the only contents of input are U+0x or 0xU+
             return null;
-        if(inputCaps.length>=4) 
+        else if(inputCaps.length>=4) 
             if(inputCaps.substring(0,4)===("U+0X") || inputCaps.substring(0,4)===("0XU+")) //remove prefixes U+0x and 0xU+
                 inputCaps = inputCaps.substring(4,input.length);
         else if(inputCaps.substring(0,2)===("U+") || inputCaps.substring(0,2)===("0X")) //length is less than 4, remove prefixes U+ and 0x

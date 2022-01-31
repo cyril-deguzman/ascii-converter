@@ -9,7 +9,7 @@
  * 
  */
 
-class Unicode{
+ class Unicode{
     constructor(){
         this.TestUnicode();
         this.unicode = "";
@@ -136,7 +136,7 @@ class Unicode{
         if(parseInt(input, 16) > parseInt("1FFFFF", 16)) //check if value is too big for UTF8
             return "N/A";
         var binary = this.Resize(parseInt(input, 16).toString(2),21); //hex->dec->bin; validated (String) then resize to 21bits
-        binary = this.buildBinaryUTF8(binary, this.findLabel(this.findByteSize(input))); //convert binary to utf8
+        binary = this.buildBinaryUTF8(binary, this.findLabel(input)); //convert binary to utf8
         return this.Resize(parseInt(binary,2).toString(16).toUpperCase(),8); //return resulting hex value, resized to 8 hex digits
     }
 
@@ -221,26 +221,18 @@ class Unicode{
             return -1;
     }
 
-    /**
-     * PRIVATE
-     * Determines the UTF8 label equivalent to the given the byte size
-     * Used for UTF8
-     * @param {Number} size Byte size (1,2,3,or 4)
-     * @returns Label value of the given input (7,11,16,or 21)
-     */
-    findLabel(size){
-        switch(size) {
-            case 1:
-                return 7;
-            case 2:
-                return 11;
-            case 3:
-                return 16;
-            case 4:
-                return 21;
-            default:
-                return -1;
-        }
+    findLabel(input){
+        var numVal = parseInt(input,16);
+        if(0<=numVal && numVal<=127)
+            return 7;
+        else if(128<=numVal && numVal<=2047)
+            return 11;
+        else if(2048<=numVal && numVal<=65535)
+            return 16;
+        else if(65536<=numVal && numVal<=2097151)
+            return 21;
+        else
+            return -1;
     }
 
     /**
@@ -309,7 +301,7 @@ class Unicode{
 					output += '1';
 					break;
 				default:
-					output += input.charAt(indexRef[idx][i]);
+					output += input.charAt(indexRef[idx][i]+1);
 					break;
 			}
         }
