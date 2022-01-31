@@ -72,7 +72,7 @@ class App extends Component {
     return (
       <div id="body">
         <div id="header">
-          <p id="header-text">UNICODE TO UTF CONVERTER</p>
+          <p id="header-text">Unicode® to UTF Converter</p>
         </div>
         <div id="search">
           <Search size="large" placeholder="Enter Unicode" onSearch={this.handleChange} enterButton />
@@ -94,8 +94,7 @@ class App extends Component {
           </div>
         </div>
         <div id="footer" className="footer">
-          
-          <a href="https://github.com/cyril-deguzman/ascii-converter">
+          <a href="https://github.com/cyril-deguzman/ascii-converter" className='link'>
             <p>Link to Git Repo</p>
           </a>
         </div>

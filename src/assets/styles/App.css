@@ -13,10 +13,12 @@
 
 #search {
   min-width: 30vw;
-  max-width: 60%;
+  max-width: 80%;
 }
 
 #header{
+  display: contents;
+  flex-direction: column;
   max-width: 80%;
 }
 
@@ -25,6 +27,9 @@
   font-family: 'Roboto', sans-serif;
   font-size: calc(3vw + 3vh + 1vmin); /*dynamic font for responsive scaling (https://stackoverflow.com/a/45863608)*/
   text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 20px;
 }
 
 #output{
@@ -52,7 +57,8 @@
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 40px;
-  color: #413c3c
+  color: #413c3c;
+  margin-right: 20px;
 }
 
 .output-text:hover {
@@ -75,12 +81,23 @@
 
 .ant-input-search .ant-input-lg {
   line-height: 2.5713;
+  font-family: 'Roboto','sans-serif';
 }
+
 
 .footer{
   font-family: 'Roboto';
   text-align: center;
   font-size: large;
+}
+
+.link{
+  color: #413c3c;
+}
+
+.link:hover{
+  text-shadow: 0px 0px 8px #413c3c;
+  color: #413c3c;
 }
 
 #alert-div{
