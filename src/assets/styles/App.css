@@ -8,16 +8,22 @@
   flex-direction: column;
   padding-top: 2.5%; /*to remove need for scrollable page*/
   color: #5f4b40;
+  max-width: 100%;
 }
 
 #search {
-  width: 30vw;
+  min-width: 30vw;
+  max-width: 60%;
+}
+
+#header{
+  max-width: 80%;
 }
 
 #header-text{
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
-  font-size: 60px;
+  font-size: calc(3vw + 3vh + 1vmin); /*dynamic font for responsive scaling (https://stackoverflow.com/a/45863608)*/
   text-align: center;
 }
 
@@ -51,12 +57,12 @@
 
 .output-text:hover {
   cursor: url("../images/cursorClipboard.png"), auto;
-  text-shadow: 0px 0px 2px #413c3c;
+  text-shadow: 0px 0px 8px #413c3c;
 }
 
 #symbol:hover {
   cursor: url("../images/cursorClipboard.png"), auto;
-  text-shadow: 0px 0px 2px #413c3c;
+  text-shadow: 0px 0px 8px #413c3c;
 }
 
 .output-text{
@@ -74,6 +80,7 @@
 .footer{
   font-family: 'Roboto';
   text-align: center;
+  font-size: large;
 }
 
 #alert-div{

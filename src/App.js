@@ -3,7 +3,7 @@ import { Unicode } from './Unicode';
 import { Checker } from './Checker';
 import { Input, Alert } from 'antd';
 import 'antd/dist/antd.min.css';
-import './assets/styles/App.css'
+import './assets/styles/App.css';
 
 const { Search } = Input;
 
@@ -68,8 +68,6 @@ class App extends Component {
       })()    
   }
 
-
-
   render() {
     return (
       <div id="body">
@@ -95,9 +93,11 @@ class App extends Component {
             <h1 onClick={() => this.handleClipboard(4)} id="symbol">{this.state.symbol}</h1>
           </div>
         </div>
-
         <div id="footer" className="footer">
-          <a href="https://github.com/cyril-deguzman/ascii-converter">Link to Github Repo</a>
+          
+          <a href="https://github.com/cyril-deguzman/ascii-converter">
+            <p>Link to Git Repo</p>
+          </a>
         </div>
       </div>
     );
