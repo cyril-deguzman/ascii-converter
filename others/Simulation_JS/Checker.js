@@ -32,7 +32,7 @@
             return null;
         inputCaps = inputCaps.replace(/\s/gm,""); //remove any whitespaces
         if(inputCaps.length < 4){
-            if(inputCaps === "U+" || inputCaps === "0x") //assume only containing U+ or 0x
+            if(inputCaps === "U+" || inputCaps === "0X") //assume only containing U+ or 0x
                 return null;
             else if((inputCaps.substring(0,2)==="U+" || inputCaps.substring(0,2)==="0x"))
                 return inputCaps.substring(2,3);

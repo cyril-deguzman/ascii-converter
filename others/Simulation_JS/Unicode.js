@@ -221,6 +221,11 @@ class Unicode{
             return -1;
     }
 
+    /**
+     * Finds the appropriate label for the given Unicode to be used for its UTF-8 encoding.
+     * @param {String} input Hexadecimal value from 0x0000 to 0x1FFFFF
+     * @returns Equivalent label value of the input given (7,11,16,21), -1 if an invalid Unicode (e.g. Unicode < 0 or Unicode > 1FFFFF)
+     */
     findLabel(input){
         var numVal = parseInt(input,16);
         if(0<=numVal && numVal<=127)
