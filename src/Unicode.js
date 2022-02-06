@@ -152,9 +152,9 @@
             //0x10000 = 65536
             //D800 = 55296
             //DC00 = 56320
-            var binary = this.Resize((numVal-65536).toString(2),20); //subtract 0x10000 from input then convert to binary and split to left and right segments
-            var left = (parseInt(binary.substring(0,10),2) + 55296).toString(16); //add left_bin and 0xD800 return as hex
-            var right = (parseInt(binary.substring(10,20),2) + 56320).toString(16); //add right_bin and 0xDC00 return as hex
+            var binary = this.Resize((numVal-parseInt("10000",16)).toString(2),20); //subtract 0x10000 from input then convert to binary and split to left and right segments
+            var left = (parseInt(binary.substring(0,10),2) + parseInt("D800",16)).toString(16); //add left_bin and 0xD800 return as hex
+            var right = (parseInt(binary.substring(10,20),2) + parseInt("DC00",16)).toString(16); //add right_bin and 0xDC00 return as hex
             return this.Resize((left+right).toUpperCase(),8); //return resulting hex value, resized to 8 hex digits
         } 
         return this.Resize(input.toUpperCase(),8); 
@@ -184,11 +184,12 @@
             return input;
         else{
             var c = "0";
+            var out = "";
             if(msb)
                 c = input.substring(0,1);
             for(var i = 0; i < size-input.length; i++) //create fill-in by difference off target size and input length
-                c += c.substring(0,1);
-            return c+input; //return resized input
+                out += c.substring(0,1);
+            return out+input; //return resized input
         }
     }
 
@@ -221,6 +222,11 @@
             return -1;
     }
 
+    /**
+     * Finds the appropriate label for the given Unicode to be used for its UTF-8 encoding.
+     * @param {String} input Hexadecimal value from 0x0000 to 0x1FFFFF
+     * @returns Equivalent label value of the input given (7,11,16,21), -1 if an invalid Unicode (e.g. Unicode < 0 or Unicode > 1FFFFF)
+     */
     findLabel(input){
         var numVal = parseInt(input,16);
         if(0<=numVal && numVal<=127)
@@ -273,7 +279,6 @@
         
         switch(label){
             case 7:
-                idx = 0;
                 range = 8;
                 break;
             case 11:
@@ -301,7 +306,7 @@
 					output += '1';
 					break;
 				default:
-					output += input.charAt(indexRef[idx][i]+1);
+					output += input.charAt(indexRef[idx][i]);
 					break;
 			}
         }
