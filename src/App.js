@@ -10,7 +10,7 @@ const { Search } = Input;
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {utf8: '', utf16: '', utf32: '', symbol: 'A', clipboard: ''};
+    this.state = {utf8: '', utf16: '', utf32: '', symbol: 'A', clipboard: '',all: ''};
     this.unicode = new Unicode();
     this.checker = new Checker();
     this.handleChange = this.handleChange.bind(this);
@@ -24,17 +24,20 @@ class App extends Component {
       this.setState({utf16: ""});
       this.setState({utf32: ""});
       this.setState({symbol: ""});
+      this.setState({all: ""});
     } else if (this.checker.CheckInputBool(value)) {
       this.unicode.SetUnicode(this.checker.CheckInput(value)); //to ensure a cleaner input to SetUnicode
       this.setState({utf8: this.unicode.GetUTF8});
       this.setState({utf16: this.unicode.GetUTF16});
       this.setState({utf32: this.unicode.GetUTF32});
       this.setState({symbol: this.unicode.GetChar});
+      this.setState({all: this.unicode.GetFormatted});
     } else {
       this.setState({utf8: "INVALID"});
       this.setState({utf16: "INVALID"});
       this.setState({utf32: "INVALID"});
       this.setState({symbol: "INVALID"});
+      this.setState({all: "INVALID"});
     }
 
     this.setState({clipboard: ''});
@@ -49,7 +52,8 @@ class App extends Component {
       case 1: navigator.clipboard.writeText(this.state.utf8); break;
       case 2: navigator.clipboard.writeText(this.state.utf16); break;
       case 3: navigator.clipboard.writeText(this.state.utf32); break;
-      case 4: navigator.clipboard.writeText(this.state.symbol); break;
+      case 4: navigator.clipboard.writeText(this.state.all); break;
+      case 5: navigator.clipboard.writeText(this.state.symbol); break;
       default: ;
     }
     this.setState({clipboard: 'Copied to clipboard!'});
@@ -87,10 +91,11 @@ class App extends Component {
             <h1 onClick={() => this.handleClipboard(1) }>UTF-8: <span className="output-text">{this.state.utf8}</span></h1>
             <h1 onClick={() => this.handleClipboard(2)}>UTF-16: <span className="output-text">{this.state.utf16}</span></h1>
             <h1 onClick={() => this.handleClipboard(3)}>UTF-32: <span className="output-text">{this.state.utf32}</span></h1>
+            <h1 onClick={() => this.handleClipboard(4)}>Output (xx xx xx format): <br /><span className="output-text">{this.state.all}</span></h1>
           </div>
           
           <div id="symbol-div" className="output">
-            <h1 onClick={() => this.handleClipboard(4)} id="symbol">{this.state.symbol}</h1>
+            <h1 onClick={() => this.handleClipboard(5)} id="symbol">{this.state.symbol}</h1>
           </div>
         </div>
         <div id="footer" className="footer">
