@@ -4,10 +4,7 @@ import {Unicode} from './Unicode.js'
 //TEST AREA
 let c = new Checker();
 let u = new Unicode();
-var list = ["245D6","1CAFE","42069","Youtube","Meta","ABCDEF","10FFFFF",
-            "1FFFFF","","U+ABCDEF","U+3041","U+0x3086","0xU+308C","3044","0x306A","zxcvbnm","0x10FF FF",
-            "0x10FFF","10FF", "u+10F", "U+10","0x","U+0x","U+","U+AB","0xAB","FFFF","U+10","10F","10FF",
-            "10FFF","10FFFF","10FFFFF","U+1","U+41","U+410","0x"];
+var list = ["245D6","1CAFE","U+3041","U+0041","U+20AC","U+4F60"];
 console.log("Input, UTF8, UTF16, UTF32, Character");
 for(var i = 0; i < list.length; i++){
     if(c.CheckInput(list[i]) != null){
